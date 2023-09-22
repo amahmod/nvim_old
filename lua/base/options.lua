@@ -45,12 +45,12 @@ local options = {
         timeoutlen = 300, -- Shorten key timeout length a little bit for which-key
         undodir = vim.fn.stdpath 'data' .. '/undodir', -- Chooses where to store the undodir
         undofile = true, -- Enable persistent undo between session and reboots
-        updatetime = 200, -- Length of time to wait before triggering the plugin
+        updatetime = 20, -- Length of time to wait before triggering the plugin
         virtualedit = 'block', -- allow going past end of line in visual block mode
         winbar = '%m %f', -- Statusline
-        wrap = true, -- Disable wrapping of lines longer than the width of window.
+        wrap = false, -- Disable wrapping of lines longer than the width of window.
         writebackup = false, -- Disable making a backup before overwriting a file
-        lazyredraw = true,
+        lazyredraw = true, -- Don't redraw while executing macros
     },
     g = {
         mapleader = ' ', -- set leader key
