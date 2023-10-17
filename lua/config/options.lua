@@ -9,6 +9,7 @@ opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 3 -- Hide * markup for bold and italic
 opt.confirm = true -- Confirm to save changes before exiting modified buffer
 opt.cursorline = true -- Enable highlighting of the current line
+opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.expandtab = true -- Use spaces instead of tabs
 opt.fillchars = {
 	foldopen = "", 
