@@ -154,7 +154,7 @@ return {
 			{ '<leader>gf', function() require('telescope.builtin').find_files({ default_text = vim.fn.expand('<cword>'), }) end, desc = 'Find file', },
 
 			{ '<leader>ss', '<cmd>Telescope live_grep<CR>', desc = '[S]earch [W]ord (live)' },
-			{ '<leader>ss', function() require('telescope.builtin').live_grep({ default_text = require('utils.edit').get_visual_selection(), }) end, mode = 'x', desc = '[S]earch [W]ord (selection)', },
+			{ '<leader>ss', function() require('telescope.builtin').live_grep({ default_text = require('lib.utils').get_visual_selection(), }) end, mode = 'x', desc = '[S]earch [W]ord (selection)', },
 			{ '<leader>sS', function() require('telescope.builtin').live_grep({ default_text = vim.fn.expand('<cword>'), }) end, desc = '[S]earch [W]ord under cursor (live)', },
 			{ '<leader>sw', '<cmd>Telescope grep_string<CR>', desc = '[S]earch/find [W]ord under cursor' },
 
