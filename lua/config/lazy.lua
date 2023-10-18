@@ -21,13 +21,7 @@ require('lazy').setup {
         { import = 'plugins.extras.misc' },
         { import = 'plugins.extras.ui' },
     },
-    concurrency = vim.loop.available_parallelism() * 2,
-    defaults = { lazy = true, version = false },
-    install = { missing = true, colorscheme = {} },
-    checker = { enabled = true, notify = false },
-    change_detection = { notify = false },
-    ui = { border = 'rounded' },
-    diff = { cmd = 'terminal_git' },
+    defaults = { lazy = true },
     performance = {
         rtp = {
             disabled_plugins = {

@@ -69,7 +69,7 @@ return {
                 ---@type lsp.Client
                 local client = vim.lsp.get_client_by_id(client_id)
                 local buffer = vim.api.nvim_get_current_buf()
-                require('lazyvim.plugins.lsp.keymaps').on_attach(client, buffer)
+                require('plugins.lsp.keymaps').on_attach(client, buffer)
                 return ret
             end
 

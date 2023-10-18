@@ -1,4 +1,3 @@
-
 local custom_actions = {}
 
 function custom_actions.send_to_qflist(prompt_bufnr)
@@ -30,10 +29,7 @@ function custom_actions.scroll_results(prompt_bufnr, direction)
     local default_speed = vim.api.nvim_win_get_height(status.results_win) / 2
     local speed = status.picker.layout_config.scroll_speed or default_speed
 
-    require('telescope.actions.set').shift_selection(
-        prompt_bufnr,
-        math.floor(speed) * direction
-    )
+    require('telescope.actions.set').shift_selection(prompt_bufnr, math.floor(speed) * direction)
 end
 
 -- Custom pickers
@@ -47,9 +43,7 @@ local plugin_directories = function(opts)
     opts.cmd = vim.F.if_nil(opts.cmd, {
         vim.o.shell,
         '-c',
-        'find '
-            .. vim.fn.shellescape(dir)
-            .. ' -mindepth 1 -maxdepth 1 -type d',
+        'find ' .. vim.fn.shellescape(dir) .. ' -mindepth 1 -maxdepth 1 -type d',
     })
 
     local dir_len = dir:len()
@@ -73,13 +67,10 @@ local plugin_directories = function(opts)
                 entry_maker = opts.entry_maker,
             },
             sorter = require('telescope.sorters').get_fuzzy_file(),
-            previewer = require('telescope.previewers.term_previewer').cat.new(
-                opts
-            ),
+            previewer = require('telescope.previewers.term_previewer').cat.new(opts),
             attach_mappings = function(prompt_bufnr)
                 actions.select_default:replace(function()
-                    local entry =
-                        require('telescope.actions.state').get_selected_entry()
+                    local entry = require('telescope.actions.state').get_selected_entry()
                     actions.close(prompt_bufnr)
                     vim.cmd.tcd(entry.value)
                 end)

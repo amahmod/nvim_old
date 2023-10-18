@@ -1,7 +1,6 @@
 vim.opt_local.spell = true
 vim.opt_local.wrap = true
 
-
 -- Surround visual-selection or word under cursor with markdown link.
 local function link_surround()
     local mode = vim.fn.mode()
