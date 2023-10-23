@@ -17,7 +17,8 @@ return {
                 'nvim-treesitter/nvim-treesitter-context',
                 opts = { enable = true, max_lines = 3 },
             },
-            {'windwp/nvim-ts-autotag', event = 'InsertEnter'}
+            { 'windwp/nvim-ts-autotag', event = 'InsertEnter' },
+            { 'andymass/vim-matchup' },
         },
         cmd = {
             'TSUpdate',
@@ -34,6 +35,10 @@ return {
         ---@type TSConfig
         ---@diagnostic disable-next-line: missing-fields
         opts = {
+            matchup = {
+                enable = true,
+                disable = { 'c', 'ruby' },
+            },
             autotag = {
                 enable = true,
                 enable_rename = true,
@@ -141,8 +146,8 @@ return {
                 'zig',
             },
         },
-        config = function(_, opts) 
-            require("nvim-treesitter.configs").setup(opts)
-        end
+        config = function(_, opts)
+            require('nvim-treesitter.configs').setup(opts)
+        end,
     },
 }

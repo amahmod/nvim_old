@@ -59,6 +59,7 @@ opt.wildmode = 'longest:full,full' -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
 opt.winbar = '%m %f'
+opt.cmdheight = 0
 
 if vim.fn.has 'nvim-0.10' == 1 then
     opt.smoothscroll = true

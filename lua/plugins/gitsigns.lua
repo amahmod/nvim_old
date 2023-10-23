@@ -2,13 +2,18 @@ return {
     'lewis6991/gitsigns.nvim',
     event = 'VeryLazy',
     opts = {
-        signs = {
-            add = { text = '▎' },
-            change = { text = '▎' },
-            delete = { text = '契' },
-            topdelete = { text = '契' },
-            changedelete = { text = '▎' },
-            untracked = { text = '▎' },
+        signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
+        numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
+        linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
+        word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
+        current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+        attach_to_untracked = true,
+        watch_gitdir = {
+            interval = 1000,
+            follow_files = true,
+        },
+        preview_config = {
+            border = 'rounded',
         },
         on_attach = function(buffer)
             local gs = package.loaded.gitsigns

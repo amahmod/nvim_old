@@ -1,4 +1,4 @@
-local Util = require 'lib.utils'
+local utils = require 'lib.utils'
 
 return {
     -- lspconfig
@@ -59,7 +59,7 @@ return {
         ---@param opts PluginLspOpts
         config = function(_, opts)
             -- setup keymaps
-            Util.on_attach(function(client, buffer)
+            utils.on_attach(function(client, buffer)
                 require('plugins.lsp.keymaps').on_attach(client, buffer)
             end)
 
@@ -84,7 +84,7 @@ return {
             local inlay_hint = vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint
 
             if opts.inlay_hints.enabled and inlay_hint then
-                Util.lsp.on_attach(function(client, buffer)
+                utils.lsp.on_attach(function(client, buffer)
                     if client.supports_method 'textDocument/inlayHint' then
                         inlay_hint(buffer, true)
                     end
