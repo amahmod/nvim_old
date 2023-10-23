@@ -1,10 +1,8 @@
 return {
     {
         'echasnovski/mini.pairs',
-        event = { 'BufReadPost', 'BufNewFile' },
-        config = function(_, opts)
-            require('mini.pairs').setup(opts)
-        end,
+        event = 'InsertEnter',
+        config = true,
     },
     {
         'echasnovski/mini.bufremove',
@@ -27,16 +25,49 @@ return {
     },
     {
         'echasnovski/mini.align',
-        event = { 'BufReadPost', 'BufNewFile' },
-        config = function(_, opts)
-            require('mini.align').setup(opts)
-        end,
+        keys = {
+            {
+                'ga',
+                function()
+                    require 'mini.align'
+                end,
+                desc = 'Align text',
+                mode = 'x',
+            },
+            {
+                'gA',
+                function()
+                    require 'mini.align'
+                end,
+                desc = 'Align text with preview',
+                mode = 'x',
+            },
+        },
+        config = true,
     },
     {
         'echasnovski/mini.comment',
-        event = { 'BufReadPost', 'BufNewFile' },
-        config = function(_, opts)
-            require('mini.comment').setup(opts)
-        end,
+        keys = 'gcc',
+        config = true,
+    },
+    {
+        'echasnovski/mini.surround',
+        version = '*',
+        keys = {
+            'sa',
+            'sd',
+            'sr',
+            'sf',
+            'sF',
+            'sh',
+            'sn',
+        },
+        config = true,
+    },
+    {
+        'echasnovski/mini.indentscope',
+        version = '*',
+        event = 'VeryLazy',
+        config = true,
     },
 }
