@@ -142,10 +142,15 @@ return {
                         c = cmp.mapping.close(),
                     },
                     ['<CR>'] = cmp.mapping.confirm { select = false },
+                    -- auto select first item
                     ['<S-CR>'] = cmp.mapping.confirm {
                         behavior = cmp.ConfirmBehavior.Replace,
                         select = true,
                     },
+                    -- auto select first snippet item
+                    ['<C-CR>'] = cmp.mapping(function()
+                        luasnip.expand_or_jump()
+                    end),
                     ['<Tab>'] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
