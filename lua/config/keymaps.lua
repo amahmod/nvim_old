@@ -164,4 +164,21 @@ map('n', '<Esc>', '<cmd>noh<CR>', { desc = 'Clear Search Highlight' })
 
 -- }}}
 
+-- Misc {{{
+
+map('n', '<leader>tg', function()
+    require('lib.utils').float_term(
+        { 'lazygit' },
+        { cwd = require('lib.utils').get_root(), esc_esc = false }
+    )
+end, { desc = 'Lazygit (root dir)' })
+
+-- Floating terminal
+map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Enter Normal Mode' })
+map({ 't', 'n' }, '<Leader>tt', function()
+    require('lib.utils').float_term(nil, { cwd = require('lib.utils').get_root() })
+end, { desc = 'Terminal (root dir)' })
+
+-- }}}
+
 -- vim:fdm=marker:fdl=0
