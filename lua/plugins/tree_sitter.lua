@@ -148,6 +148,12 @@ return {
         },
         config = function(_, opts)
             require('nvim-treesitter.configs').setup(opts)
+
+            local user_settings = require 'config.settings'
+            if user_settings.tree_sitter_folds then
+                vim.opt.foldmethod = 'expr'
+                vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+            end
         end,
     },
 }
