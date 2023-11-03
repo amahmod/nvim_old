@@ -47,7 +47,10 @@ return {
     },
     {
         'echasnovski/mini.comment',
-        keys = 'gcc',
+        keys = {
+            { 'gc', mode = 'x' },
+            { 'gcc', mode = 'n' },
+        },
         config = true,
     },
     {
