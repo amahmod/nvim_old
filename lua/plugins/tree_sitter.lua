@@ -19,6 +19,7 @@ return {
             },
             { 'windwp/nvim-ts-autotag', event = 'InsertEnter' },
             { 'andymass/vim-matchup' },
+            { 'JoosepAlviste/nvim-ts-context-commentstring' },
         },
         cmd = {
             'TSUpdate',
@@ -50,6 +51,9 @@ return {
             refactor = {
                 highlight_definitions = { enable = true },
                 highlight_current_scope = { enable = true },
+            },
+            context_commentstring = {
+                enable = true,
             },
             incremental_selection = {
                 enable = true,
