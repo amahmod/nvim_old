@@ -21,7 +21,8 @@ local keymaps = {
     { 'n', 'gK', vim.lsp.buf.signature_help, 'Signature Documentation' },
     { 'n', '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction' },
     { 'n', '<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame' },
-    { 'i', '<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation' },
+    { 'i', '<C-i>', vim.lsp.buf.signature_help, 'Signature Documentation' },
+
 
 
 	  {'n', '[d', diagnostic_goto(true), 'Next Diagnostic'},
