@@ -3,7 +3,8 @@ return {
     -- require 'plugins.theme.nightfox',
     -- require 'plugins.theme.kanagawa',
     -- require 'plugins.theme.everforest',
-    require 'plugins.theme.rosepine',
+    -- require 'plugins.theme.rosepine',
+    require 'plugins.theme.solarized_osaka',
     -- {
     --     'rafi/theme-loader.nvim',
     --     lazy = false,
