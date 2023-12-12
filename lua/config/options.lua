@@ -40,7 +40,7 @@ opt.shiftwidth = 4 -- Size of an indent
 opt.shortmess:append { W = true, I = false, c = false, C = true }
 opt.showbreak = '↳  '
 opt.showmode = false -- Dont show mode since we have a statusline
-opt.sidescrolloff = 8 -- Columns of context
+opt.sidescrolloff = 999 -- Columns of context
 opt.signcolumn = 'yes' -- Always show the signcolumn, otherwise it would shift the text each time
 opt.smartcase = true -- Don't ignore case with capitals
 opt.smartindent = true -- Insert indents automatically
@@ -65,7 +65,10 @@ if vim.fn.has 'nvim-0.10' == 1 then
     opt.smoothscroll = true
 end
 
-vim.opt.foldlevel = 99
+vim.opt.foldcolumn = '0' -- '0' is not bad
+vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
 
 -- Set filetypes
 vim.filetype.add {
