@@ -1,3 +1,4 @@
+local user_settigns = require 'config.settings'
 -- Keyboard leaders
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ';'
@@ -69,6 +70,11 @@ vim.opt.foldcolumn = '0' -- '0' is not bad
 vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
+
+if user_settigns.tree_sitter_folds then
+    vim.opt.foldmethod = 'expr'
+    vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+end
 
 -- Set filetypes
 vim.filetype.add {

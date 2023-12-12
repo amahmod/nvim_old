@@ -39,7 +39,15 @@ return {
                 enabled = false,
             },
             -- add any global capabilities here
-            capabilities = {},
+            capabilities = {
+                textDocument = {
+                    foldingRange = {
+                        dynamicRegistration = false,
+                        lineFoldingOnly = true,
+                    },
+                },
+            },
+
             -- LSP Server Settings
             ---@type lspconfig.options
             servers = require 'plugins.lsp.servers',

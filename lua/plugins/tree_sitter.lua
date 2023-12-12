@@ -19,7 +19,7 @@ return {
             },
             { 'windwp/nvim-ts-autotag', event = 'InsertEnter' },
             { 'andymass/vim-matchup' },
-            { 'JoosepAlviste/nvim-ts-context-commentstring' },
+            { 'JoosepAlviste/nvim-ts-context-commentstring', config = true },
         },
         cmd = {
             'TSUpdate',
@@ -51,9 +51,6 @@ return {
             refactor = {
                 highlight_definitions = { enable = true },
                 highlight_current_scope = { enable = true },
-            },
-            context_commentstring = {
-                enable = true,
             },
             incremental_selection = {
                 enable = true,
@@ -154,10 +151,6 @@ return {
             require('nvim-treesitter.configs').setup(opts)
 
             local user_settings = require 'config.settings'
-            if user_settings.tree_sitter_folds then
-                vim.opt.foldmethod = 'expr'
-                vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-            end
         end,
     },
 }
