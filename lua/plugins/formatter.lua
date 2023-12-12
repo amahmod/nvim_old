@@ -4,7 +4,7 @@ if user_settings.format_on_save then
     vim.api.nvim_create_autocmd('BufWritePre', {
         pattern = '*',
         callback = function(args)
-            require('conform').format { bufnr = args.buf }
+            require('conform').format { bufnr = args.buf, lsp_fallback = true }
         end,
     })
 end
@@ -16,9 +16,11 @@ return {
     keys = {
         {
             '<leader>lf',
-            ':lua require("conform").format()<CR>',
-            desc = 'Format Document',
+            function()
+                require('conform').format { async = true, lsp_fallback = true }
+            end,
             mode = { 'n', 'v' },
+            desc = 'Format buffer',
         },
     },
     config = function()
@@ -32,6 +34,7 @@ return {
                 markdown = { prettier },
                 svelte = { prettier },
                 typescript = { prettier },
+                sql = { 'pg_format' },
             },
         }
     end,
